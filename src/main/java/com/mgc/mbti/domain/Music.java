@@ -12,15 +12,21 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ENTJ {
+
+@Table(name = "music")
+public class Music {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "entj_idx")
-    private Long ENTJIdx;
+    @Column(name = "music_idx")
+    private Long musicIdx;
 
-    @Column(name = "Song", nullable = false)
-    private String Song;
+    @Column(name = "song", nullable = false)
+    private String song;
 
     @Column(name = "content", nullable = false)
     private String artist;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "playlistIdx")
+    private PlayList playList;
 }
