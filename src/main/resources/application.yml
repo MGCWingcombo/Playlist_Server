@@ -6,6 +6,6 @@ spring:
     password: AAAA0000
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     database-platform: org.hibernate.dialect.MySQL8Dialect
     generate-ddl: true
