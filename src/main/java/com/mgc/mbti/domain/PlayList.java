@@ -12,15 +12,14 @@ import javax.persistence.*;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ENTP {
+@Table(name = "playlist")
+public class PlayList {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "entp_idx")
-    private Long ENTPIdx;
+    @Column(name = "playlist_idx")
+    private Long playlistIdx;
 
-    @Column(name = "Song", nullable = false)
-    private String Song;
+    @Column(name = "tag", nullable = false)
+    private String tag;
 
-    @Column(name = "content", nullable = false)
-    private String artist;
 }
