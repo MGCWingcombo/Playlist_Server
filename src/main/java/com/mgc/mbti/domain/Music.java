@@ -1,9 +1,6 @@
 package com.mgc.mbti.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,7 +9,7 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
+@Builder
 @Table(name = "music")
 public class Music {
     @Id
@@ -23,10 +20,10 @@ public class Music {
     @Column(name = "song", nullable = false)
     private String song;
 
-    @Column(name = "content", nullable = false)
+    @Column(name = "artist", nullable = false)
     private String artist;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "playlistIdx")
-    private PlayList playList;
+    private Playlist playList;
 }
