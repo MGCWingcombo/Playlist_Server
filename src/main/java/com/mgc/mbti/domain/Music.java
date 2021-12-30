@@ -17,11 +17,14 @@ public class Music {
     @Column(name = "music_idx")
     private Long musicIdx;
 
-    @Column(name = "song", nullable = false)
-    private String song;
+    @Column(name = "music", nullable = false)
+    private String music;
 
     @Column(name = "artist", nullable = false)
     private String artist;
+
+    @Column(name = "url", nullable = false)
+    private String url;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "playlistIdx")
