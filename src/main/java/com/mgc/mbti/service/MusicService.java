@@ -2,7 +2,6 @@ package com.mgc.mbti.service;
 
 import com.mgc.mbti.domain.Music;
 import com.mgc.mbti.domain.Playlist;
-import com.mgc.mbti.dto.MusicDto;
 import com.mgc.mbti.repository.MusicRepository;
 import com.mgc.mbti.repository.PlaylistRepository;
 import lombok.RequiredArgsConstructor;
@@ -24,14 +23,10 @@ public class MusicService {
         Random random = new Random();
 
         for (Music music : musics) {
-            MusicDto musicDto = MusicDto.builder()
-                    .song(music.getSong())
-                    .artist(music.getArtist())
-                    .build();
-
             Map<String, String> map = new HashMap<>();
-            map.put("Song", musicDto.getSong());
-            map.put("Artist", musicDto.getArtist());
+            map.put("Music", music.getMusic());
+            map.put("Artist", music.getArtist());
+            map.put("url", music.getUrl());
             musicList.add(map);
         }
         while (true){
