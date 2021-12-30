@@ -21,6 +21,7 @@ const Endmbti = () => {
           .get(`http://localhost:8080/playlist/${props}`)
           .then((res) => {
             setMbtis(res.data);
+            console.log(res.data);
             console.log("성공");
           })
           .catch((err) => {
@@ -36,7 +37,7 @@ const Endmbti = () => {
     holder();
   }, []);
 
-  var keys = JSON.stringify(mbtis, ["id", "title"], 3);
+  var keys = JSON.stringify(mbtis, ["success", "code","msg","data"], 3);
 
   return (
     <>
