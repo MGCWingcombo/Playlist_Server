@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/playlist")
 @RequiredArgsConstructor
 public class MusicController {
 
@@ -18,7 +18,7 @@ public class MusicController {
     private final MusicService musicService;
 
     @GetMapping("/{tag}")
-    public SingleResult <List<Map<String,String>>> mbtiSong (@PathVariable String tag){
+    public SingleResult <List<Map<String,String>>> mbtiMusic (@PathVariable String tag){
         return responseService.getSingleResult(musicService.getMusicList(tag));
     }
 }
