@@ -1,26 +1,25 @@
-import React, { useState, useEffect } from "react";
-import logo from "./logo.svg";
+import React from "react";
+import MbtiTest from "./Pages/MbtiTest/MbtiTest";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home";
 import "./App.css";
-//import axios from "axios";
+import Addlist from "./Pages/Addlist/Addlist";
+import Endmbti from "./Pages/Endmbti/Endmbti";
+import MBTI_btn from "./Components/Func/MBTI_btn";
+import Question from "./Pages/Question/Question";
 
 function App() {
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    fetch("/mbti-test/hello")
-        .then((response) => response.text())
-        .then((message) => {
-          setMessage(message);
-        });
-  }, []);
-
   return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1>{message}</h1>
-        </header>
-      </div>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MbtiTest />} />
+          <Route path="mbti-test" element={<Question />} />
+          <Route path="recommend-list" element={<Endmbti />} />
+          <Route path="mbti-result" element={<Addlist />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
