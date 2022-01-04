@@ -26,6 +26,9 @@ public class Music {
     @Column(name = "url", nullable = false)
     private String url;
 
+    @Column(name = "urlImg", nullable = false)
+    private String urlImg;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "playlistIdx")
     private Playlist playList;
