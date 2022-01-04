@@ -20,15 +20,17 @@ public class MusicService {
         Playlist playlist = playlistRepository.findByTag(tag);
         List<Music> musics= musicRepository.findAllByPlayList(playlist);
         List<Map<String, String>> musicList = new ArrayList<>();
-        Random random = new Random();
+        //Random random = new Random();
 
         for (Music music : musics) {
             Map<String, String> map = new HashMap<>();
             map.put("Music", music.getMusic());
             map.put("Artist", music.getArtist());
             map.put("url", music.getUrl());
+            map.put("urlImg", music.getUrlImg());
             musicList.add(map);
         }
+        /*
         while (true){
             if (musicList.size() == 8)
                 break;
@@ -36,7 +38,7 @@ public class MusicService {
                 int i = random.nextInt(musicList.size());
                 musicList.remove(i);
             }
-        }
+        }*/
         return musicList;
     }
 }
