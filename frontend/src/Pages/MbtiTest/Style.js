@@ -2,17 +2,32 @@ import styled from "styled-components";
 
 export const Content = styled.div`
   display: flex;
-  .left {
-    margin-left: 20px;
+`;
+
+export const LeftImg = styled.div`
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  img {
+    width: 270px;
+    height: 470px;
   }
-  .right {
-    margin-right: 20px;
+`;
+export const RightImg = styled.div`
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  img {
+    width: 320px;
+    height: 650px;
   }
 `;
 
 export const Contents = styled.div`
   width: 100%;
   height: 100vh;
+  margin-top: 70px;
+
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -44,8 +59,8 @@ export const backImage = styled.image`
   position: relative;
 
   img {
-    width: 250px;
-    height: 222.7px;
+    width: 470px;
+    height: 350px;
   }
 `;
 

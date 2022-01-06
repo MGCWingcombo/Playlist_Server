@@ -5,22 +5,22 @@ const SideMbti = () => {
   return (
     <>
       <S.Mbtis>
-        <p>ISTP</p>
-        <p>INTJ</p>
-        <p>ENTP</p>
-        <p>ESTJ</p>
-        <p>ESFP</p>
-        <p>ISFJ</p>
-        <p>ENTJ</p>
-        <p>ENFP</p>
-        <p>ISFP</p>
-        <p>INFJ</p>
-        <p>ESFJ</p>
-        <p>INFP</p>
-        <p>ESTP</p>
-        <p>ENFJ</p>
-        <p>INTP</p>
-        <p>ISTJ</p>
+        <p className="one">ISTP</p>
+        <p className="two">INTJ</p>
+        <p className="three">ENTP</p>
+        <p className="four">ESTJ</p>
+        <p className="five">ESFP</p>
+        <p className="six">ISFJ</p>
+        <p className="eight">ENTJ</p>
+        <p className="ten">ENFP</p>
+        <p className="ten">ISFP</p>
+        <p className="eight">INFJ</p>
+        <p className="six">ESFJ</p>
+        <p className="five">INFP</p>
+        <p className="four">ESTP</p>
+        <p className="three">ENFJ</p>
+        <p className="two">INTP</p>
+        <p className="one">ISTJ</p>
       </S.Mbtis>
     </>
   );

@@ -13,6 +13,7 @@ export const Content = styled.div`
 export const Contents = styled.div`
   width: 100%;
   height: 100vh;
+  margin-top: 25px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

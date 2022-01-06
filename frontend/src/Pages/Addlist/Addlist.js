@@ -3,7 +3,6 @@ import * as S from "./Style";
 import SideMbti from "../../Components/SideMbti/SideMbti";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-// import Endmbti from "../Endmbti/Endmbti";
 
 const Addlist = ({}) => {
   const location = useLocation();
@@ -33,7 +32,7 @@ const Addlist = ({}) => {
             <span>{location.state.mbti}</span>
           </S.backImage>
           <div className="btn" onClick={navigateClick}>
-            <S.Btn>내 플레이리스트에 추가하기</S.Btn>
+            <S.Btn>나의 추천 플레이리스트 보러가기</S.Btn>
           </div>
         </S.Contents>
         <div className="right">
