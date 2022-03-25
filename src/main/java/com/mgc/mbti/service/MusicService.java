@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -17,19 +18,16 @@ public class MusicService {
     private final MusicRepository musicRepository;
 
     public List<Map<String,String>> getMusicList(String tag){
-        Playlist playlist = playlistRepository.findByTag(tag);
-        List<Music> musics= musicRepository.findAllByPlayList(playlist);
-        List<Map<String, String>> musicList = new ArrayList<>();
-        //Random random = new Random();
+        List<Music> musics= musicRepository.findAllByPlayList(playlistRepository.findByTag(tag));
+        Random random = new Random();
 
-        for (Music music : musics) {
-            Map<String, String> map = new HashMap<>();
-            map.put("Music", music.getMusic());
-            map.put("Artist", music.getArtist());
-            map.put("url", music.getUrl());
-            map.put("urlImg", music.getUrlImg());
-            musicList.add(map);
-        }
+
+        List<Map<String, String>> musicList = musics.stream().map(
+                music -> {
+                    Map<String, String> map = Map.of("Music",music.getMusic(),"Artist",music.getArtist(),"url",music.getUrl(),"urlImg",music.getUrlImg());
+                    return map;
+                }
+        ).collect(Collectors.toList());
         /*
         while (true){
             if (musicList.size() == 8)
@@ -38,7 +36,8 @@ public class MusicService {
                 int i = random.nextInt(musicList.size());
                 musicList.remove(i);
             }
-        }*/
+        }*/ // 8곡만 도려내는 기능이지만 최적화 이슈와 기능상 8곡만 보낼 이유가 없기에 삭제
+
         return musicList;
     }
 }
