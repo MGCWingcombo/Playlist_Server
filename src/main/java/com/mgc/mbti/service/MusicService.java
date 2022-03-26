@@ -28,6 +28,8 @@ public class MusicService {
                     return map;
                 }
         ).collect(Collectors.toList());
+
+        Collections.shuffle(musicList);
         /*
         while (true){
             if (musicList.size() == 8)
