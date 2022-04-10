@@ -2,6 +2,7 @@ package com.mgc.mbti.service;
 
 import com.mgc.mbti.domain.Music;
 import com.mgc.mbti.domain.Playlist;
+import com.mgc.mbti.exception.exception.NotFoundTagException;
 import com.mgc.mbti.repository.MusicRepository;
 import com.mgc.mbti.repository.PlaylistRepository;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +22,8 @@ public class MusicService {
 
     public List<Map<String,String>> getMusicList(String tag){
         Page<Music> musicPage = musicRepository.findAllByPlayList(playlistRepository.findByTag(tag), PageRequest.of(0,24));
-
+        if (musicPage.getTotalElements() == 0)
+            throw new NotFoundTagException();
         List<Map<String, String>> musicList = musicPage.stream().map(
                 music -> {
                     Map<String, String> map = Map.of("Music",music.getMusic(),"Artist",music.getArtist(),"url",music.getUrl(),"urlImg",music.getUrlImg());
