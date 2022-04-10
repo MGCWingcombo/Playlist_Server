@@ -1,0 +1,8 @@
+# exception_en.yml
+unKnown:
+  code: "-9999"
+  msg: "An unknown error has occurred."
+
+not-found-tag:
+  code: "-404"
+  msg: "Can't Locate The Tags."

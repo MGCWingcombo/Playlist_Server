@@ -1,0 +1,8 @@
+# exception_ko.yml
+unKnown:
+  code: "-9999"
+  msg: "알수 없는 오류가 발생하였습니다."
+
+not-found-tag:
+  code: "-404"
+  msg: "태그를 찾을 수 없습니다"
