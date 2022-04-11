@@ -18,6 +18,7 @@ public class MusicController {
     private final MusicService musicService;
 
     @GetMapping("/{tag}")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public SingleResult <List<Map<String,String>>> mbtiMusic (@PathVariable String tag){
         return responseService.getSingleResult(musicService.getMusicList(tag));
     }
