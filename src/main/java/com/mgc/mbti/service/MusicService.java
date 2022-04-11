@@ -23,7 +23,7 @@ public class MusicService {
 
     public List<Map<String,String>> getMusicList(String tag){
         Playlist playlist = playlistRepository.findByTag(tag);
-        if (musicPage.getTotalElements() == 0)
+        if (playlist == null)
             throw new NotFoundTagException();
         List<Music> musics = musicRepository.findAllByPlayList(playlist);
         List<Map<String, String>> musicList = musics.stream().map(
