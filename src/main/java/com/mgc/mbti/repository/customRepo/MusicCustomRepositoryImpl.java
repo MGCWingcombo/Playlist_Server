@@ -2,6 +2,8 @@ package com.mgc.mbti.repository.customRepo;
 
 import com.mgc.mbti.domain.Music;
 import com.mgc.mbti.domain.Playlist;
+import com.mgc.mbti.dto.MusicDto;
+import com.querydsl.core.types.Projections;
 import com.querydsl.core.types.dsl.Expressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.stereotype.Repository;
@@ -20,8 +22,15 @@ public class MusicCustomRepositoryImpl implements MusicCustomRepository{
     }
 
     @Override
-    public List<Music> findAllByPlayList(Playlist playlist){
-        return jpaQueryFactory.selectFrom(music1)
+    public List<MusicDto> findAllByPlayList(Playlist playlist){
+        return jpaQueryFactory.from(music1)
+                .select(Projections.constructor(MusicDto.class,
+                        music1.music,
+                        music1.artist,
+                        music1.url,
+                        music1.urlImg
+                        )
+                    )
                 .where(music1.playList.eq(playlist))
                 .orderBy(Expressions.numberTemplate(Double.class, "function('rand')").asc())
                 .limit(24)
