@@ -1,5 +1,6 @@
 package com.mgc.mbti.service;
 
+import com.mgc.mbti.dto.MusicDto;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ class MusicServiceTest {
     @Test
     void getMusicList() {
         //given
-        List<Map<String,String>> list;
+        List<MusicDto> list;
 
         //when
         list = musicService.getMusicList("entj");
