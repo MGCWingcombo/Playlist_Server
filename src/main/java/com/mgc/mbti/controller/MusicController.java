@@ -2,6 +2,7 @@ package com.mgc.mbti.controller;
 
 import com.mgc.mbti.domain.response.ResponseService;
 import com.mgc.mbti.domain.response.SingleResult;
+import com.mgc.mbti.dto.MusicDto;
 import com.mgc.mbti.service.MusicService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,7 @@ public class MusicController {
 
     @GetMapping("/{tag}")
     @CrossOrigin(origins = "*", allowedHeaders = "*")
-    public SingleResult <List<Map<String,String>>> mbtiMusic (@PathVariable String tag){
+    public SingleResult <List<MusicDto>> mbtiMusic (@PathVariable String tag){
         return responseService.getSingleResult(musicService.getMusicList(tag));
     }
 }
